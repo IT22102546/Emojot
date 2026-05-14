@@ -1,0 +1,371 @@
+{
+  "name": "Pizza Ordering System",
+  "reportNamePrefix": "Order",
+  "reporterNamePrefix": "Customer",
+  "descriptionFormat": "text",
+  "timeZone": -330,
+  "type": {
+    "name": "Order Type",
+    "readOnly": false,
+    "type": "enum",
+    "values": [
+      {
+        "id": "New Order",
+        "name": "New Order"
+      },
+      {
+        "id": "Modification",
+        "name": "Modification"
+      },
+      {
+        "id": "Complaint",
+        "name": "Complaint"
+      },
+      {
+        "id": "Delivery Issue",
+        "name": "Delivery Issue"
+      },
+      {
+        "id": "Feedback",
+        "name": "Feedback"
+      }
+    ]
+  },
+  "status": {
+    "name": "Order Status",
+    "type": "enum",
+    "values": [
+      {
+        "id": "Pending",
+        "name": "Pending",
+        "backgroundColor": "#95a5a6",
+        "textColor": "#000000"
+      },
+      {
+        "id": "Confirmed",
+        "name": "Confirmed",
+        "backgroundColor": "#3498db",
+        "textColor": "#ffffff",
+        "fieldsValidation": [
+          {
+            "fieldID": "paymentStatus",
+            "required": true,
+            "message": "Payment confirmation is required."
+          }
+        ],
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "orderConfirmation",
+            "target": "customer"
+          },
+          {
+            "channel": "sms",
+            "template": "orderConfirmed",
+            "target": "customer"
+          }
+        ]
+      },
+      {
+        "id": "Preparing",
+        "name": "Preparing",
+        "backgroundColor": "#f39c12",
+        "textColor": "#ffffff",
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "preparingNotification",
+            "target": "admin",
+            "contactFilters": [
+              "kitchen"
+            ]
+          },
+          {
+            "channel": "sms",
+            "template": "preparingNotificationCustomer",
+            "target": "customer"
+          }
+        ]
+      },
+      {
+        "id": "Ready",
+        "name": "Ready for Pickup",
+        "backgroundColor": "#e74c3c",
+        "textColor": "#ffffff",
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "readyNotification",
+            "target": "customer"
+          },
+          {
+            "channel": "sms",
+            "template": "readyForPickup",
+            "target": "customer"
+          }
+        ]
+      },
+      {
+        "id": "Out for Delivery",
+        "name": "Out for Delivery",
+        "backgroundColor": "#9b59b6",
+        "textColor": "#ffffff",
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "deliveryNotification",
+            "target": "customer"
+          }
+        ]
+      },
+      {
+        "id": "Delivered",
+        "name": "Delivered",
+        "finalState": true,
+        "backgroundColor": "#27ae60",
+        "textColor": "#ffffff",
+        "editableFields": [],
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "deliveredConfirmation",
+            "target": "customer"
+          },
+          {
+            "channel": "email",
+            "template": "feedbackRequest",
+            "target": "customer"
+          }
+        ]
+      },
+      {
+        "id": "Cancelled",
+        "name": "Cancelled",
+        "finalState": true,
+        "backgroundColor": "#c0392b",
+        "textColor": "#ffffff",
+        "editableFields": [],
+        "triggers": [
+          {
+            "channel": "email",
+            "template": "orderCancellation",
+            "target": "customer"
+          }
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "sourceState": "Pending",
+        "targetStates": [
+          "Confirmed",
+          "Cancelled"
+        ]
+      },
+      {
+        "sourceState": "Confirmed",
+        "targetStates": [
+          "Preparing",
+          "Cancelled"
+        ]
+      },
+      {
+        "sourceState": "Preparing",
+        "targetStates": [
+          "Ready",
+          "Cancelled"
+        ]
+      },
+      {
+        "sourceState": "Ready",
+        "targetStates": [
+          "Out for Delivery",
+          "Cancelled"
+        ]
+      },
+      {
+        "sourceState": "Out for Delivery",
+        "targetStates": [
+          "Delivered",
+          "Cancelled"
+        ]
+      }
+    ]
+  },
+  "customFields": {
+    "customerName": {
+      "name": "Customer Name",
+      "type": "string"
+    },
+    "phoneNumber": {
+      "name": "Phone Number",
+      "type": "string"
+    },
+    "email": {
+      "name": "Email Address",
+      "type": "string"
+    },
+    "deliveryAddress": {
+      "name": "Delivery Address",
+      "type": "textArea"
+    },
+    "orderItems": {
+      "name": "Order Items",
+      "type": "textArea"
+    },
+    "pizzaSize": {
+      "name": "Pizza Size",
+      "type": "enum",
+      "values": [
+        {
+          "id": "Small",
+          "name": "Small (10'')"
+        },
+        {
+          "id": "Medium",
+          "name": "Medium (12'')"
+        },
+        {
+          "id": "Large",
+          "name": "Large (14'')"
+        },
+        {
+          "id": "XLarge",
+          "name": "XLarge (16'')"
+        }
+      ]
+    },
+    "crust": {
+      "name": "Crust Type",
+      "type": "enum",
+      "values": [
+        {
+          "id": "Hand Tossed",
+          "name": "Hand Tossed"
+        },
+        {
+          "id": "Thin Crust",
+          "name": "Thin Crust"
+        },
+        {
+          "id": "Stuffed",
+          "name": "Stuffed Crust"
+        },
+        {
+          "id": "Flatbread",
+          "name": "Flatbread"
+        }
+      ]
+    },
+    "specialInstructions": {
+      "name": "Special Instructions",
+      "type": "textArea"
+    },
+    "paymentMethod": {
+      "name": "Payment Method",
+      "type": "enum",
+      "values": [
+        {
+          "id": "Cash",
+          "name": "Cash on Delivery"
+        },
+        {
+          "id": "Credit Card",
+          "name": "Credit Card"
+        },
+        {
+          "id": "Debit Card",
+          "name": "Debit Card"
+        },
+        {
+          "id": "Digital Wallet",
+          "name": "Digital Wallet"
+        }
+      ]
+    },
+    "paymentStatus": {
+      "name": "Payment Status",
+      "type": "enum",
+      "values": [
+        {
+          "id": "Pending",
+          "name": "Pending"
+        },
+        {
+          "id": "Completed",
+          "name": "Completed"
+        },
+        {
+          "id": "Failed",
+          "name": "Failed"
+        }
+      ]
+    },
+    "totalAmount": {
+      "name": "Total Amount",
+      "type": "string"
+    },
+    "deliveryTime": {
+      "name": "Estimated Delivery Time",
+      "type": "date"
+    },
+    "issues": {
+      "name": "Issues/Complaints",
+      "type": "textArea"
+    },
+    "resolution": {
+      "name": "Resolution",
+      "type": "textArea"
+    },
+    "deliveryPartner": {
+      "name": "Delivery Partner",
+      "type": "string"
+    },
+    "trackingURL": {
+      "name": "Tracking URL",
+      "type": "string"
+    },
+    "feedback": {
+      "name": "Customer Feedback",
+      "type": "enum",
+      "values": [
+        {
+          "id": "Excellent",
+          "name": "Excellent"
+        },
+        {
+          "id": "Good",
+          "name": "Good"
+        },
+        {
+          "id": "Average",
+          "name": "Average"
+        },
+        {
+          "id": "Poor",
+          "name": "Poor"
+        }
+      ]
+    }
+  },
+  "priority": {
+    "name": "Priority",
+    "type": "enum",
+    "values": [
+      {
+        "id": "P1",
+        "name": "Urgent (P1)"
+      },
+      {
+        "id": "P2",
+        "name": "High (P2)"
+      },
+      {
+        "id": "P3",
+        "name": "Normal (P3)"
+      }
+    ]
+  },
+  "workflowCreation": {
+  }
+}
