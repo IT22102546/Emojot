@@ -11,7 +11,26 @@
     "values": [
       {
         "id": "New Order",
-        "name": "New Order"
+        "name": "New Order",
+        "highPriorityFields": [
+          "customerName",
+          "phoneNumber",
+          "email",
+          "orderItems",
+          "pizzaSize",
+          "crust",
+          "totalItems",
+          "orderMethod",
+          "specialInstructions",
+          "paymentMethod",
+          "deliveryCustomerName",
+          "deliveryPhoneNumber",
+          "deliveryEmail",
+          "deliveryAddress",
+          "paymentStatus",
+          "feedback",
+          "whyDifficult"
+        ] 
       },
       {
         "id": "Modification",
@@ -209,11 +228,6 @@
       "name": "Email Address",
       "type": "string"
     },
-
-    "deliveryAddress": {
-      "name": "Delivery Address",
-      "type": "textArea"
-    },
     "orderItems": {
       "name": "Order Items",
       "type": "textArea"
@@ -254,6 +268,10 @@
         }
       ]
     },
+    "totalItems": {
+      "name": "Number of Items",
+      "type": "string"
+    },
     "specialInstructions": {
       "name": "Special Instructions",
       "type": "textArea"
@@ -264,7 +282,7 @@
       "values": [
         {
           "id": "Cash",
-          "name": "Cash on Delivery"
+          "name": "Cash"
         },
         {
           "id": "Card",
@@ -275,6 +293,22 @@
           "name": "Bank Transfer"
         }
       ]
+    },
+    "deliveryCustomerName": {
+      "name": "Customer Name for Delivery",
+      "type": "string"
+    },
+    "deliveryPhoneNumber": {
+      "name": "Phone Number for Delivery",
+      "type": "string"
+    },
+    "deliveryEmail": {
+      "name": "Email Address for Delivery",
+      "type": "string"
+    },
+    "deliveryAddress": {
+      "name": "Delivery Address",
+      "type": "textArea"
     },
     "paymentStatus": {
       "name": "Payment Status",
@@ -294,11 +328,6 @@
         }
       ]
     },
-    "totalItems": {
-      "name": "Number of Items",
-      "type": "string"
-    },
-    
     "deliveryTime": {
       "name": "Estimated Delivery Time",
       "type": "date"
@@ -336,6 +365,10 @@
           "name": "Very Difficult"
         }
       ]
+    },
+    "whyDifficult": {
+      "name": "Difficulty reason",
+      "type": "string"
     }
   },
   "priority": {
@@ -356,7 +389,5 @@
       }
     ]
   },
-  "workflowCreation": {
-    
-  }
+  "workflowCreation": {}
 }

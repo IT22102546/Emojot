@@ -376,15 +376,28 @@ Thank you $$loyalty_Name_value$$ for your positive feedback!
                     <customFields>
                         <field>
                             <key>title</key>
-                            <value>$$q3554_emote$$ For $$q685_emote$$ $$q5648_emote$$ $$q2244_emote$$</value>
+                            <value>$$q3554_emote$$ For $$q2244_emote$$ $$q685_emote$$ $$q5648_emote$$ </value>
                         </field>
+                        <field>
+                            <key>customerName</key>
+                            <value>$$loyalty_Name_value$$</value>
+                        </field>
+                        <field>
+                            <key>phoneNumber</key>
+                            <value>$$loyalty_Telephone_value$$</value>
+                        </field>
+                        <field>
+                             <key>email</key> 
+                            <value>$$loyalty_Email_value$$</value>
+                        </field>
+                       
                          <field>
                             <key>orderItems</key>
                             <value>$$q5648_emote$$</value>   
                         </field>
                         <field>
                             <key>orderItems</key>
-                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$</value>
+                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$$</value>
                         </field>
                         <field>
                             <key>crust</key>
@@ -396,16 +409,20 @@ Thank you $$loyalty_Name_value$$ for your positive feedback!
                         </field>
                         <field>
                             <key>description</key>
-                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$</value>
+                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$$</value>
                         </field>
 
                          <field>
                             <key>orderItems</key>
-                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$</value>
+                            <value>$$q685_emote$$ $$q5648_emote$$ $$q2244_emote$$</value>
                         </field>
                          <field>
                             <key>orderMethod</key>
-                            <value>$$q685_emote$$ $$</value>
+                            <value>$$q1264_emote$$</value>
+                        </field>
+                         <field>
+                            <key>totalItems</key>
+                            <value>$$gp812_c1_comment_value$$</value>
                         </field>
 
                         <field>
@@ -420,22 +437,27 @@ Thank you $$loyalty_Name_value$$ for your positive feedback!
                             <key>feedback</key>
                             <value>$$q6039_emote$$</value>
                         </field>
-                       
-                        <field>
-                            <key>customerName</key>
-                            <value>$$loyalty_Name_value$$</value>
+                       <field>
+                            <key>deliveryCustomerName</key>
+                            <value>$$gp1823_c1_comment_value$$</value>
                         </field>
                         <field>
-                            <key>phoneNumber</key>
-                            <value>$$loyalty_Telephone_value$$</value>
+                            <key>deliveryPhoneNumber</key>
+                            <value>$$gp1823_c2_comment_value$$</value>
                         </field>
                         <field>
-                             <key>email</key> 
-                            <value>$$loyalty_Email_value$$</value>
+                            <key>deliveryEmail</key> 
+                            <value>$$gp1823_c3_comment_value$$</value>
                         </field>
+                        
                         <field>
                             <key>deliveryAddress</key>
-                            <value>$$$gp1823_c4_comment_value$$</value>
+                            <value>$$gp1823_c4_comment_value$$</value>
+                        </field>
+
+                         <field>
+                            <key>whyDifficult</key>
+                            <value>$$gp5322_c1_comment_value$$</value>
                         </field>
                     </customFields>
                 </data>
