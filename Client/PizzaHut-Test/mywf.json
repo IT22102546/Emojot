@@ -201,10 +201,15 @@
       "name": "Phone Number",
       "type": "string"
     },
+    "title": {
+      "name": "title",
+      "type": "string"
+    },
     "email": {
       "name": "Email Address",
       "type": "string"
     },
+
     "deliveryAddress": {
       "name": "Delivery Address",
       "type": "textArea"
@@ -213,13 +218,17 @@
       "name": "Order Items",
       "type": "textArea"
     },
+    "orderMethod": {
+      "name": "Order Method",
+      "type": "string"
+    },
     "pizzaSize": {
       "name": "Pizza Size",
       "type": "enum",
       "values": [
         {
-          "id": "Small",
-          "name": "Small (10'')"
+          "id": "Personal",
+          "name": "Personal (10'')"
         },
         {
           "id": "Medium",
@@ -228,10 +237,6 @@
         {
           "id": "Large",
           "name": "Large (14'')"
-        },
-        {
-          "id": "XLarge",
-          "name": "XLarge (16'')"
         }
       ]
     },
@@ -240,20 +245,12 @@
       "type": "enum",
       "values": [
         {
-          "id": "Hand Tossed",
-          "name": "Hand Tossed"
-        },
-        {
           "id": "Thin Crust",
           "name": "Thin Crust"
         },
         {
-          "id": "Stuffed",
-          "name": "Stuffed Crust"
-        },
-        {
-          "id": "Flatbread",
-          "name": "Flatbread"
+          "id": "Pan Pizza",
+          "name": "Pan Pizza"
         }
       ]
     },
@@ -270,16 +267,12 @@
           "name": "Cash on Delivery"
         },
         {
-          "id": "Credit Card",
-          "name": "Credit Card"
+          "id": "Card",
+          "name": "Card"
         },
         {
-          "id": "Debit Card",
-          "name": "Debit Card"
-        },
-        {
-          "id": "Digital Wallet",
-          "name": "Digital Wallet"
+          "id": "Bank Transfer",
+          "name": "Bank Transfer"
         }
       ]
     },
@@ -301,20 +294,17 @@
         }
       ]
     },
-    "totalAmount": {
-      "name": "Total Amount",
+    "totalItems": {
+      "name": "Number of Items",
       "type": "string"
     },
+    
     "deliveryTime": {
       "name": "Estimated Delivery Time",
       "type": "date"
     },
     "issues": {
       "name": "Issues/Complaints",
-      "type": "textArea"
-    },
-    "resolution": {
-      "name": "Resolution",
       "type": "textArea"
     },
     "deliveryPartner": {
@@ -330,20 +320,20 @@
       "type": "enum",
       "values": [
         {
-          "id": "Excellent",
-          "name": "Excellent"
+          "id": "Very Easy",
+          "name": "Very Easy"
         },
         {
-          "id": "Good",
-          "name": "Good"
+          "id": "Easy",
+          "name": "Easy"
         },
         {
-          "id": "Average",
-          "name": "Average"
+          "id": "Difficult",
+          "name": "Difficult"
         },
         {
-          "id": "Poor",
-          "name": "Poor"
+          "id": "Very Difficult",
+          "name": "Very Difficult"
         }
       ]
     }
@@ -367,5 +357,6 @@
     ]
   },
   "workflowCreation": {
+    
   }
 }

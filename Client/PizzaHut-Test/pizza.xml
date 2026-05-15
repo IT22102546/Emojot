@@ -35,7 +35,6 @@
 						<field><key>orderItems</key><value>$$orderItems_value$$</value></field>
 						<field><key>pizzaSize</key><value>$$pizzaSize_value$$</value></field>
 						<field><key>crust</key><value>$$crust_value$$</value></field>
-						<field><key>specialInstructions</key><value>$$specialInstructions_value$$</value></field>
 						<field><key>paymentMethod</key><value>$$paymentMethod_value$$</value></field>
 						<field><key>paymentStatus</key><value>$$paymentStatus_value$$</value></field>
 						<field><key>totalAmount</key><value>$$totalAmount_value$$</value></field>
